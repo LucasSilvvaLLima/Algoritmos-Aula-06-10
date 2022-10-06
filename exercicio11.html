@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Quantos Mundiais seu time tem? <input type="text" id="in_titulo"></p>
+    <button onclick="ver()">Ver troféus de mundiais FIFA</button>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+<script>
+    function ver(){
+        div_mensagem.innerHTML = ""
+        var titulos = Number(in_titulo.value)
+        var i = 0
+
+        if (titulos <=  0) {
+            div_mensagem.innerHTML += `<img src="./img/chora.png" alt=""">`
+        } else {
+            while (i < titulos) {
+                div_mensagem.innerHTML += `<img src="./img/ta.png" alt="" style="width: 100px;">`
+                i++
+            }
+        }
+            
+    }
+</script>

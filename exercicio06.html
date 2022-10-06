@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Qual o nome de quem você mais ama: <input type="text" id="in_nome"><br><br>
+    Quanto voce ama essa pessoa: <input type="text" id="in_numero" placeholder="Número decimal"><br><br>
+    <button onclick="amor()">Expressar amor</button>
+    <div id="div_amor"></div>
+</body>
+</html>
+<script>
+    function amor(){
+        var nome = in_nome.value
+        var numero = Number(in_numero.value)
+        var i = 0
+
+        while (i < numero) {
+            div_amor.innerHTML += `${i+1} - ${nome}, eu te amo! Sempre lembre disso!<br>`
+            i++
+        }
+    }
+</script>

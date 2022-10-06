@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="in_qtd">
+    <Button onclick="elefante()">Atazanar a médium</Button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function elefante(){
+        div_mensagem.innerHTML = ""
+        var qtd = Number(in_qtd.value)
+        var i = 1
+        var mensagem = "incomodam"
+        while (i < qtd) {
+            div_mensagem.innerHTML += `1 elefante incomoda muita gente!<br><br>`
+            if(i < qtd){
+                mensagem += " incomodam"
+            }
+            div_mensagem.innerHTML += `${i+1} elefantes ${mensagem} muita gente!<br><br>`
+            
+            i++
+        }
+    }
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Digite um Número: <input type="text" id="in_numero" placeholder="Entre 0 e 200"></p>
+    <button onclick="viva7()">Viva o 7!</button>
+    <div id="div_multiplo7"></div>
+</body>
+</html>
+<script>
+    function viva7(){
+        var numero = Number(in_numero.value)
+        var contador = 0
+
+        if (numero <= 200) {
+            while (contador < numero) {
+                multiplo7 = contador % 7 == 0
+                if(multiplo7){
+                    div_multiplo7.innerHTML += `${contador};<br>`
+                }
+                contador++
+            }
+        } else {
+            alert("DIGITE UM NÚMERO ENTRE 0 E 200")
+        }
+    }
+</script>

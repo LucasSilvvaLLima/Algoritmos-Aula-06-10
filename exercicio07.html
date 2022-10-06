@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Insira um Número entre 20 e 100: <input type="text" id="in_numero"></p>
+    <button onclick="multiplo5()">Adoro múltiplos de 5</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function multiplo5(){
+        div_mensagem.innerHTML = ""
+        var numero = Number(in_numero.value)
+        var i = 0
+        if (numero >= 20 && numero <= 100) {
+            while (i < numero) {
+                var multiplo = i % 5 == 0 
+                if (multiplo) {
+                    div_mensagem.innerHTML += `${i}<br>`
+                }
+                i++
+            }            
+        } else {
+            alert("DIGITE UM NUMERO ENTRE 20 E 100")
+        }
+    }
+</script>

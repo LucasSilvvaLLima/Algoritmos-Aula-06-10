@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Insira um intervalo de números crescente:</p>
+    <p>Valor Inicial: <input type="text" id="in_inicial"> Valor Final: <input type="text" id="in_final"></p>
+    <button onclick="pares()">S2 Pares</button><br>
+    <div id="div_pares"></div>
+</body>
+</html>
+<script>
+    function pares(){
+        div_pares.innerHTML = ""
+        var inicial = Number(in_inicial.value)
+        var final = Number(in_final.value)
+        var i = inicial
+
+        if (inicial < final) {
+            while (i < final) {
+                if (i % 2 == 0) {
+                    div_pares.innerHTML += `${i}<br>`
+                }
+                i++
+            }
+        }else{
+            alert("DIGITE VALORES EM ORDEM CRESCENTE")
+        }
+    }
+</script>
