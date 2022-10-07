@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Digite sua Idade: <input type="text" id="in_idade" onkeyup="fases()"></p>
+    <div id="div_sua_vida"></div>
+
+</body>
+
+</html>
+<script>
+    function fases() {
+        div_sua_vida.innerHTML = ""
+        var idade = Number(in_idade.value)
+        var i = 0
+        var primeira_infancia = idade >= 0
+        var pre_escolar = idade > 4 
+        var segunda_infancia = idade > 6  
+        var adolecencia = idade > 10 
+        var adulto = idade > 18 
+        var melhor_idade = idade > 50
+        var matusalem = idade > 100
+        var mensagem = ""
+        while (i <= idade) {
+            if (primeira_infancia && i <= 4 ) {
+                mensagem += `${i} anos (Primeira Infância)<br>`
+            }else if (pre_escolar && i > 4 && i <= 6) {
+                mensagem += `${i} anos (Pré-escolar)<br>`
+            }
+            else if (segunda_infancia && i > 6 && i <= 10) {
+                mensagem += `${i} anos (Segunda Infância)<br>`
+            }
+            else if (adolecencia && i > 10 && i <= 18) {
+                mensagem += `${i} anos (Adolescência)<br>`
+            } 
+            else if (adulto && i > 18 && i <= 50) {
+                mensagem += `${i} anos (Adulto)<br>`
+            }
+            else if (melhor_idade && i > 50 && i <= 100) {
+                mensagem += `${i} anos (Melhor idade)<br>`
+            }
+            else {
+                mensagem += `${i} anos (Matusalém)<br>`
+            }
+            i++
+        }
+        div_sua_vida.innerHTML = mensagem
+
+    }
+</script>

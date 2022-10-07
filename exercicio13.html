@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Qual Tabuada você quer ver:
+        <select name="" id="sel_tabuada">
+            <option value="">Tabuada</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+        </select>
+    </p>
+    <p>Até que número a tabuada deve ser construida? <input type="text" id="in_numero"></p>
+    <button onclick="tabuada()">Ver Tabuada</button>
+    <div id="div_tabuada"></div>
+</body>
+</html>
+<script>
+    function tabuada(){
+        div_tabuada.innerHTML = ""
+        var tabuada = sel_tabuada.value
+        var numero = Number(in_numero.value)
+        var i = 0
+
+        while (i < numero) {
+            var resultado = tabuada * (i+1)
+            if ((i+1) % 2 == 0) {
+                div_tabuada.innerHTML += 
+                `
+                    <p style="background-color: blue;">${tabuada} x ${i+1} = ${resultado}</p>
+                `
+            } else {
+                div_tabuada.innerHTML += 
+                `
+                    <p style="background-color: red;">${tabuada} x ${i+1} = ${resultado}</p>
+                `
+            }
+            i++
+        }
+    }
+</script>

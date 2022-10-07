@@ -19,12 +19,12 @@
         var i = 1
         var mensagem = "incomodam"
         while (i < qtd) {
-            div_mensagem.innerHTML += `1 elefante incomoda muita gente!<br><br>`
-            if(i < qtd){
-                mensagem += " incomodam"
-            }
-            div_mensagem.innerHTML += `${i+1} elefantes ${mensagem} muita gente!<br><br>`
-            
+            mensagem += " incomodam"
+            div_mensagem.innerHTML += 
+            `
+                1 elefante incomoda muita gente!<br><br>
+                ${i+1} elefantes ${mensagem} muita gente!<br><br>
+            `
             i++
         }
     }

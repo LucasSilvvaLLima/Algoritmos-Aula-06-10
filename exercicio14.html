@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>De quantos em quantos dias você treina <input type="text" id="in_frequencia"></p>
+    <button onclick="rotina()">Exibir rotina mensal</button>
+    <div id="div_rotina"></div>
+</body>
+</html>
+<script>
+    function rotina() {
+        div_rotina.innerHTML = ""
+        var frequencia = Number(in_frequencia.value)
+        var i = 0
+        while (i < 30) {
+            var diaDeTreino = i == 0 || i % frequencia == 0 
+            if (diaDeTreino) {
+                div_rotina.innerHTML += ` Dia ${i+1} - Musculação<br>`
+            } else {
+                div_rotina.innerHTML += ` Dia ${i+1} - Comer, dormir etc<br>`
+            }
+            i++
+        }
+    }
+</script>
