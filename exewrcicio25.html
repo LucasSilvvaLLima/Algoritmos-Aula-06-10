@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Insira o valor que já tem guardado: <input type="text" id="in_saldo_inicial"></p>
+    <p>Quanto sera poupado a cada mês: <input type="text" id="in_deposito_mensal"></p>
+    <p>Por quantos meses vai poupar: <input type="text" id="in_meses"></p>
+    <p>Valor de juros mensal: <input type="text" id="in_juros_mensal"></p>
+    <button onclick="poupar()">Vamos Poupar</button>
+    <div id="div_economia"></div>
+</body>
+
+</html>
+<script>
+    function poupar() {
+        div_economia.innerHTML = ""
+        var saldo_inicial = Number(in_saldo_inicial.value)
+        var deposito_mensal = Number(in_deposito_mensal.value)
+        var meses = Number(in_meses.value)
+        var juros_mensal = Number(in_juros_mensal.value)
+        var contador = 0
+
+        var validacao_deposito = deposito_mensal > 0
+        var validacao_meses = meses > 10
+        var validacao_juros = juros_mensal >= 0.5 && juros_mensal <= 2
+
+        if (!validacao_deposito || !validacao_meses || !validacao_juros) {
+            if (!validacao_deposito) {
+                div_economia.innerHTML += "O valor a ser depositado tem que ser maior que 0<br>"
+            }
+            if (!validacao_meses) {
+                div_economia.innerHTML += "A quantidade de meses deve ser maior que 10<br>"
+            }
+            if (!validacao_juros) {
+                div_economia.innerHTML += "O percentual de juros tem que estar entre 0.5% e 2%."
+            }
+        } else {
+            var juros = 0
+            var saldo_final = 0
+            var saldo_economia = saldo_inicial
+            var total_depositado = 0
+            var renda_juros = 0
+            var rentabilidade = 0
+            while(contador < meses){
+                juros = (saldo_economia * juros_mensal) / 100
+                saldo_final = saldo_economia + juros + deposito_mensal
+                div_economia.innerHTML += `Mês ${contador + 1} - saldo inicial = R$${(saldo_economia).toFixed(2)} saldo final = R$${(saldo_final).toFixed(2)}<br>`
+                saldo_economia = saldo_final
+                total_depositado += deposito_mensal
+                renda_juros += juros
+                contador++
+            }
+            rentabilidade = (renda_juros / (total_depositado + saldo_inicial)) * 100
+
+            div_economia.innerHTML += `<br>
+                Você começou com R$ ${(saldo_inicial).toFixed(2)}<br>
+                Depositou R$ ${(total_depositado).toFixed(2)}<br>
+                E agora você tem: R$ ${(saldo_final).toFixed(2)}<br>
+                Neste período sua conta rendeu R$ ${(renda_juros).toFixed(2)}<br>
+                Sua rentabilidade foi de ${(rentabilidade).toFixed(2)}%`
+        }
+    }
+</script>

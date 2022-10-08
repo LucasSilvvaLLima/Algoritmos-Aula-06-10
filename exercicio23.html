@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Quanto você tem guardado: <input type="text" id="in_guardado"></p>
+    <p>Quanto Vai poupar por mês: <input type="text" id="in_poupanca"></p>
+    <p>Por quantos meses: <input type="text" id="in_meses"></p>
+    <button onclick="poupar()">Vamos Poupar</button>
+    <div id="div_poupanca"></div>
+
+</body>
+</html>
+<script>
+    function poupar(){
+        div_poupanca.innerHTML = ""
+        var saldo = Number(in_guardado.value) 
+        var poupanca_mensal = Number(in_poupanca.value)
+        var meses = Number(in_meses.value)
+        var i = 0
+        var valor_inicial = saldo
+        var valor_final = 0
+        var poupou = 0
+        var saldo_mensal = saldo
+        var novo_saldo = saldo
+
+
+        if(poupanca_mensal < 0 || meses < 6 || meses > 20){
+            if (poupanca_mensal < 0) {
+                div_poupanca.innerHTML += "O valor a ser poupado tem que ser maior que ZERO<br>"
+            }
+            if(meses < 6 || meses > 20){
+                div_poupanca.innerHTML += "A quantidade de meses deve estar entre 6 e 20 meses<br>"
+            }
+        }else{
+            while (i < meses) {
+                i++
+                saldo_mensal += poupanca_mensal 
+                div_poupanca.innerHTML += `Marco tinha ${(novo_saldo).toFixed(2)}, depois do depósito do ${i}º mês ele ficou com ${(saldo_mensal).toFixed(2)}<br>`
+                novo_saldo += poupanca_mensal
+                valor_final = saldo_mensal
+                poupou = saldo_mensal - valor_inicial
+            }
+            div_poupanca.innerHTML += `
+                Você começou com R$ ${(valor_inicial).toFixed(2)}
+                Durante os ${meses} meses você poupou R$ ${(poupou).toFixed(2)}
+                E agora você tem: R$ ${(valor_final).toFixed(2)}  
+            `
+        }
+    }
+</script>

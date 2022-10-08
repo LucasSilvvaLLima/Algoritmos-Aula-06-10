@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Trajeto que um estudante do extremo leste da capital faz para chegar na SPTech</h1>
+    <p>Quantos ônibus você pega: <input type="text" id="in_onibus"></p>
+    <p>Quantos trens você pega: <input type="text" id="in_trem"></p>
+    <p>Quantos metrôs você pega: <input type="text" id="in_metro"></p>
+    <button onclick="trajeto()">#Partiu Trajeto</button>
+    <div id="div_trajeto"></div>
+</body>
+</html>
+<script>
+    function trajeto(){
+        var onibus = Number(in_onibus.value)
+        var trem = Number(in_trem.value)
+        var metro = Number(in_metro.value)
+        var trajeto = onibus + metro + trem
+        var x = 0; y = 0; z = 0
+        var mensagem = ""
+
+        while (x < onibus) {
+            mensagem += `<p style="color: red;">Pegando o ${x + 1}° buzão</p>` 
+            x++
+        }
+        while (y < trem) {
+            mensagem += `<p style="color: green;">Pegando o ${y + 1}° trem</p>`
+            y++
+        }
+        while (z < metro) {
+            mensagem += `<p style="color: blue;">Pegando o ${z + 1}° metrô</p>`
+            z++
+        }
+
+        div_trajeto.innerHTML = mensagem 
+    }
+    
+</script>

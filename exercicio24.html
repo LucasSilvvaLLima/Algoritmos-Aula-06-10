@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Digite o número inicial: <input type="text" id="in_inicial"></p>
+    <p>Digite o número Flnal: <input type="text" id="in_final"></p>
+    <button onclick="analisar()">analisar</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+<script>
+    function analisar() {
+        div_mensagem.innerHTML = ""
+        var inicial = Number(in_inicial.value)
+        var final = Number(in_final.value)
+        var intervalo_valido = inicial > 0 && final > inicial
+        var contador = inicial
+        var intervalo = final - inicial
+        var divisivel_primo = 0
+        if (!intervalo_valido) {
+            div_mensagem.innerHTML = "O primeiro número tem que ser maior que zero e o segundo número tem que ser maior que o primeiro"
+        } else {
+
+            while (contador <= final) {
+                var numero_par = contador % 2 == 0
+                var divisivel_3 = contador % 3 == 0
+                var divisivel_5 = contador % 5 == 0
+                var divisivel_7 = contador % 7 == 0
+                var divisivel_11 = contador % 11 == 0
+                var divisivel_13 = contador % 13 == 0
+                if (numero_par) {
+                    div_mensagem.innerHTML += `O número ${contador} é divisível por 2 `
+                    divisivel_primo++
+                } else if (divisivel_3) {
+                    div_mensagem.innerHTML += ` O número ${contador} é divisível por 3 `
+                    divisivel_primo++
+                } else if (divisivel_5) {
+                    div_mensagem.innerHTML += ` O número ${contador} é divisível por 5 `
+                    divisivel_primo++
+                } else if (divisivel_7) {
+                    div_mensagem.innerHTML += ` O número ${contador} é divisível por 7 `
+                    divisivel_primo++
+                } else if (divisivel_11) {
+                    div_mensagem.innerHTML += ` O número ${contador} é divisível por 11 `
+                    divisivel_primo++
+                } else if (divisivel_13) {
+                    div_mensagem.innerHTML += ` O número ${contador} é divisível por 13 `
+                    divisivel_primo++
+                } else {
+                    div_mensagem.innerHTML += `O número ${contador} não é divisível pelos principais números primos `
+                }
+                contador++
+            }
+            div_mensagem.innerHTML += `<br><br>O intervalo de ${inicial} a ${final} tem ${intervalo} números, sendo que ${divisivel_primo} números são divisíveis por algum número primo.`
+        }
+    }
+</script>
