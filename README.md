@@ -1,4 +1,4 @@
-# Algoritmos-Aula-06-10-2022
+# Algoritmos-Aula-06-10-2022 (Estruturas de Repetição)
 Enunciados:
 1. Crie um programa o qual:
 
